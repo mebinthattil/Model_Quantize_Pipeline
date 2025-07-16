@@ -158,6 +158,13 @@ fi
 
 # === Convert to GGUF ===
 echo "Converting to GGUF"
+
+# Check if the HF model directory exists, create if not
+if [ ! -d "$SAVED_DIR_NAME_HF" ]; then
+    echo "Warning: Directory $SAVED_DIR_NAME_HF does not exist. Creating it..."
+    mkdir -p "$SAVED_DIR_NAME_HF"
+fi
+
 python3 llama.cpp/convert_hf_to_gguf.py $SAVED_DIR_NAME_HF --outfile $GGUF_OUT
 
 # === Quantize ===
