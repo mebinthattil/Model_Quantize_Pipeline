@@ -132,7 +132,7 @@ from huggingface_hub import snapshot_download
 repo_id = "$MODEL_REPO"
 snapshot_download(
     repo_id=repo_id,
-    local_dir="tinyllama-hf",
+    local_dir="$SAVED_DIR_NAME_HF",
     local_dir_use_symlinks=False
 )
 EOF
